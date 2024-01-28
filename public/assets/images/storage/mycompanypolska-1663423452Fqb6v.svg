@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   x="0"
+   y="0"
+   version="1.1"
+   viewBox="0 0 568.1 67"
+   xml:space="preserve"
+   sodipodi:docname="my-company-logo.svg"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs9" /><sodipodi:namedview
+   id="namedview7"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1.0"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="0"
+   showgrid="false"
+   inkscape:zoom="2.3182539"
+   inkscape:cx="284.04999"
+   inkscape:cy="33.430333"
+   inkscape:window-width="1910"
+   inkscape:window-height="991"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+  <path
+   d="M387.4 54.6h9.7V37l16.8-26.4h-11l-10.6 17.6L382 10.7h-11.3l16.8 26.6v17.3zm-57.4 0h9.6V26.7l21.2 27.9h8.2V10.7h-9.5v27l-20.6-27H330v43.9zm-31.5-18.4l5.8-14.2 5.8 14.2h-11.6zm-17.3 18.4h9.9l4-9.9h18.5l4 9.9h10L309 10.4H300l-18.8 44.2zm-19.6-21.8V19.6h7.4c4.8 0 7.8 2.3 7.8 6.6v.1c0 3.8-2.8 6.6-7.6 6.6h-7.6zm-9.7 21.8h9.7V41.4h7.3c9.8 0 17.7-5.2 17.7-15.4V26c0-9-6.3-15.2-16.8-15.2H252v43.9zm-50 0h9.5V26l12.2 18.6h.3L236.2 26v28.6h9.6V10.7h-10.4l-11.5 18.6-11.5-18.6H202v43.9zm-27.3-8.2c-7.8 0-13.3-6.2-13.3-13.7v-.2c0-7.5 5.4-13.6 13.1-13.6 7.8 0 13.3 6.2 13.3 13.7v.2c0 7.5-5.4 13.6-13.1 13.6m-.2 9a22.7 22.7 0 0023.4-22.7v-.2c0-12.4-9.7-22.5-23.2-22.5s-23.4 10.2-23.4 22.7 9.7 22.6 23.2 22.6m-41.3 0c8.5 0 13.5-3 18-7.8l-6.2-6.2c-3.4 3.1-6.5 5.1-11.5 5.1-7.5 0-12.7-6.2-12.7-13.7v-.2c0-7.5 5.3-13.6 12.7-13.6 4.4 0 7.8 1.9 11.2 5l6.2-7.1c-4.1-4-9-6.8-17.3-6.8a22.3 22.3 0 00-22.9 22.7c0 12.7 9.6 22.6 22.5 22.6M57.4 49.7v-38h-9.9L36.6 28.9 25.7 11.7H16v47l.3 3.5c2.5-2.3 5.4-4.2 8.6-5.8V26l11.6 17.2h.2l11.7-17.4v26c3.2.1 6.2.6 9 1.3M100 11.7H89.6L79.5 28l-10-16.3H59l16 24.6v17.9h9v-18l16-24.5zM423.4 10v44.2H554V10H423.4z"
+   fill="#333"
+   id="path2"
+   style="fill:#ffffff" />
+  <path
+   fill="#fff"
+   d="M528 34.5l2.3-5.6 2.3 5.6H528zm-6.8 7.3h3.8l1.6-3.9h7.3l1.6 3.9h4L532 24.4h-3.5l-7.4 17.4zm-16 0h3.7v-5.3l2-2 5.4 7.3h4.6l-7.4-10 7-7.3H516l-7 7.6v-7.6h-3.8v17.3zm-9.7.2c3.7 0 6.3-1.9 6.3-5.3 0-3-2-4.3-5.5-5.3-3-.7-3.7-1.1-3.7-2.2 0-1 .8-1.6 2.2-1.6a8 8 0 014.5 1.7l2-2.8a10 10 0 00-6.4-2.2c-3.5 0-6 2-6 5.2 0 3.4 2.2 4.4 5.7 5.3 2.8.7 3.4 1.2 3.4 2.2 0 1-.9 1.7-2.4 1.7-2 0-3.7-.8-5.2-2.1l-2.2 2.7a11 11 0 007.3 2.7m-21.4-.2h12.4v-3.5h-8.6V24.5H474v17.3zm-12.6-3.2c-3 0-5.2-2.5-5.2-5.5s2.1-5.4 5.2-5.4c3 0 5.2 2.5 5.2 5.4 0 3-2.1 5.5-5.2 5.5m0 3.5a9 9 0 009.2-9c0-5-3.8-8.9-9.2-8.9a9 9 0 00-9.2 9c0 4.9 3.9 8.9 9.2 8.9m-21-8.9V28h2.9c1.9 0 3 1 3 2.6s-1 2.7-3 2.7h-3zm-3.9 8.6h3.8v-5.2h2.9c3.9 0 7-2 7-6v-.1c0-3.6-2.5-6-6.6-6h-7v17.3z"
+   id="path4"
+   style="fill:#333333" />
+</svg>

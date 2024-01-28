@@ -1,0 +1,458 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  --font-headlines: Gilroy, sans-serif;
+  --font-body: Karla, sans-serif;
+  --font-icomoon: icomoon, sans-serif !important;
+}
+
+@layer components {
+  .container {
+    max-width: 1264px;
+    @apply px-6 max-w-[420px] sm:max-w-[528px] md:max-w-[768px] md:px-3 lg:max-w-[954px] xl:max-w-[1200px] mx-auto;
+  }
+  hr {
+    @apply border-0 m-0 h-px bg-white-7;
+  }
+
+  .quote-heading {
+    @apply relative pl-4 block before:absolute before:top-[0.1em] before:z-10 before:bottom-[0.1em] before:left-0 before:w-[2px] before:bg-primary before:h-auto;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .newsletter-input {
+    @apply inline-flex text-body-m text-text-night-100 bg-night-50 transition-all min-h-10 pl-2.5 py-2 pr-36 rounded-l-sm rounded-r-[3rem] outline-none w-full border border-night-200 focus:border-primary-darker;
+  }
+
+  .button-area {
+    @apply absolute top-[3px] right-0.5 z-10;
+  }
+
+  .newsletter-button {
+    @apply text-button-s px-4 h-9 font-medium font-headline text-buttons-primary-color bg-buttons-primary rounded-[3rem] flex-center border-none;
+  }
+
+  .form-checkbox {
+    @apply flex mt-6 relative;
+  }
+
+  .form-checkbox-input:checked + .form-checkbox-label::before {
+    @apply scale-100;
+  }
+
+  .form-checkbox-label {
+    @apply pl-3 block select-none;
+
+    @apply before:icon before:absolute before:top-1 before:left-0 before:w-4 before:h-4 before:overflow-hidden before:rounded-[4px] before:bg-primary before:text-text-day-100 before:text-body-s before:scale-0 before:transition-transform before:content-['\E91A'] before:flex-center before:!flex;
+
+    @apply after:icon after:absolute after:top-1 after:left-0 after:w-4 after:h-4 after:overflow-hidden after:rounded-[4px] after:border after:border-white-70 transition after:hover:border-primary-darker after:text-body-s;
+  }
+
+  .icon,
+  [class^="icon-"],
+  [class*=" icon-"] {
+    @apply inline-block;
+    font-family: var(--font-icomoon);
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .cta-gradient {
+    @apply bg-cta-gradient-mobile md:bg-cta-gradient bg-contain bg-50 bg-repeat-x md:bg-no-repeat;
+  }
+
+  .cta-lines {
+    @apply absolute top-0 left-0 w-full h-full select-none;
+    z-index: -2;
+
+    @apply before:absolute before:bg-no-repeat before:bg-top before:w-full before:left-0 before:h-[147px] md:before:h-[204px] before:bg-100-100 md:before:bg-auto-100 before:top-0;
+
+    @apply after:absolute after:bg-no-repeat after:bg-top after:w-full after:left-0 after:h-[147px] md:after:h-[204px] after:bg-100-100 md:after:bg-auto-100 after:bottom-0 after:rotate-180;
+
+    @apply before:bg-cta-lines-mobile md:before:bg-cta-lines;
+    @apply after:bg-cta-lines-mobile md:after:bg-cta-lines;
+  }
+
+  .cta-decorations {
+    @apply absolute top-0 left-0 w-full h-full select-none;
+    z-index: -1;
+
+    @apply before:absolute before:bg-no-repeat before:bg-auto-100 before:w-full before:left-0 before:top-[14px] before:h-[112px] md:before:bg-decorations-up;
+
+    @apply after:absolute after:bg-no-repeat after:bg-auto-100 after:w-full after:left-0 after:bottom-[66px] after:h-[68px] md:after:bg-decorations-down;
+
+    @apply before:bg-cta-decorations-up-mobile md:before:bg-cta-decorations-up;
+    @apply after:bg-cta-decorations-down-mobile md:after:bg-cta-decorations-down;
+  }
+
+  .link-box {
+    @apply block overflow-hidden relative h-full text-night-medium-emphasis bg-box rounded-sm border border-night-300 min-h-[222px] md:min-h-[293px] py-8 pl-24 pr-6 md:pt-28 md:pb-16 md:px-8 transition-all duration-400 md:border-b-2 md:border-b-primary hover:md:pt-[109px];
+
+    @apply before:absolute before:top-0 before:left-[-87px] before:w-[309px] before:h-[88px] before:origin-link-boxes before:bg-auto before:bg-no-repeat before:z-[-1] before:bg-link-box-1 before:-rotate-90 before:-scale-x-100 md:before:right-0 md:before:left-auto md:before:w-full md:before:transform-none;
+  }
+
+  .link-box-button {
+    @apply pl-4 transition-all duration-400 ml-[76px] group-hover:ml-0 bg-buttons-secondary text-buttons-secondary-color hover:bg-buttons-secondary-hover hover:text-buttons-secondary-hover-color rounded-l-[3rem] font-headline text-button-m font-medium h-12 w-[125px] inline-flex items-center;
+  }
+
+  .build-scale {
+    @apply block overflow-hidden relative h-full text-night-medium-emphasis bg-box rounded-sm border border-night-300 min-h-[384px] md:min-h-[293px] px-6 md:px-12 pt-36 transition-all duration-400 hover:md:pt-[140px];
+
+    @apply before:md:absolute before:md:inset-0 before:md:opacity-0 before:md:invisible before:md:transition-all before:md:duration-400 before:md:z-[-1] before:md:bg-night-150;
+
+    @apply hover:before:md:opacity-100 hover:before:md:visible;
+  }
+
+  .build-scale-button {
+    @apply pl-4 text-buttons-secondary-color  hover:text-buttons-secondary-hover-color font-headline text-button-m font-medium inline-flex items-center w-max;
+  }
+
+  .featured-panel-gradient {
+    @apply bg-featured-panel-gradient absolute left-0 w-full h-[142px] bg-auto-100 bg-no-repeat bottom-[126px] lg:bottom-0 md:h-[498px];
+  }
+
+  .featured-panel-bg {
+    @apply hidden lg:block absolute right-0 bottom-0 bg-night-100 lg:right-auto lg:left-0;
+
+    @apply before:absolute before:w-0 before:h-0 before:top-0 before:left-full before:border-t-[298px] before:border-l-[200px] before:border-transparent before:border-l-night-100;
+    height: 298px;
+    width: calc(50% - 32px);
+  }
+
+  .featured-panel-bg.right {
+    @apply left-auto right-0 before:left-auto before:right-full before:border-l-0 before:border-r-[200px] before:border-r-night-100;
+  }
+
+  .btn-secondary {
+    @apply bg-buttons-secondary text-buttons-secondary-color hover:bg-buttons-secondary-hover hover:text-buttons-secondary-hover-color;
+  }
+
+  .btn-primary {
+    @apply bg-buttons-primary text-buttons-primary-color hover:bg-buttons-primary-hover hover:text-buttons-primary-hover-color;
+  }
+
+  .use-case-box {
+    @apply opacity-10 transition-all w-full duration-400 bg-night-150 border border-white-7 my-2 px-6 flex items-center relative font-medium font-headline h-[88px] lg:h-[104px] text-white;
+
+    @apply before:absolute before:bg-hp-web3-mobile-before md:before:bg-hp-web3-before before:bg-no-repeat before:bg-auto-100 before:top-0 before:h-full before:w-4 before:lg:w-10 before:right-use-case-before;
+    @apply after:absolute after:bg-hp-web3-mobile-before md:after:bg-hp-web3-before after:bg-no-repeat after:bg-auto-100 after:top-0 after:h-full after:w-4 after:lg:w-10 after:left-use-case-before after:rotate-180;
+  }
+
+  .use-case-box img {
+    @apply h-[78px] w-auto mr-2;
+  }
+
+  .quote-details {
+    @apply py-4 pr-6 pl-12 relative flex flex-col md:flex-row md:justify-between md:items-center border-t border-t-primary;
+
+    @apply before:inline-block before:absolute before:top-0 before:left-0 before:w-0 before:h-0 before:border-r-[17px] before:border-r-primary before:border-b-[14px] before:border-b-transparent before:border-l-[14px] before:border-l-transparent;
+
+    @apply after:inline-block after:absolute after:-top-px after:left-px after:w-0 after:h-0 after:border-transparent after:border-r-[16px] after:border-r-night-150 after:border-b-[13px] after:border-b-transparent after:border-l-[13px] after:border-l-transparent;
+  }
+
+  .quotes-slider .slick-list {
+    @apply before:lg:absolute before:lg:bg-gradient-slider before:lg:h-full before:lg:w-[200px] before:lg:top-0 before:lg:left-0 before:lg:z-10;
+
+    @apply after:lg:absolute after:lg:bg-gradient-slider after:lg:h-full after:lg:w-[200px] after:lg:top-0 after:lg:right-0 before:lg:z-10 after:lg:rotate-180;
+  }
+
+  .slide-dot {
+    @apply relative w-8 h-8 before:absolute before:left-1/2 before:top-1/2 before:w-2 before:h-2 before:rounded-full before:bg-night-low-emphasis before:-translate-x-1/2 before:-translate-y-1/2 before:transition-all before:duration-400 before:z-10 before:hover:bg-night-medium-emphasis;
+  }
+
+  .slide-dot.active {
+    @apply before:bg-primary before:w-4;
+  }
+
+  .quote {
+    @apply relative before:absolute before:top-0 before:left-0 before:invisible before:w-full before:h-full before:z-20 before:bg-night-100 before:bg-quote-hidden before:bg-no-repeat before:bg-100-100 before:transition-all;
+  }
+
+  .marquee-partner .rfm-child {
+    @apply w-40 px-4 md:px-6 transition-opacity duration-400;
+  }
+
+  .marquee-partner:hover .rfm-child:not(:hover) {
+    @apply opacity-30;
+  }
+
+  .marquee-partner {
+    @apply relative before:absolute before:top-0 before:left-0 before:w-24 before:h-full before:z-20 before:bg-gradient-slider before:bg-no-repeat before:bg-100-100 before:transition-all;
+
+    @apply after:absolute after:top-0 after:right-0 after:w-24 after:h-full after:z-20 after:bg-gradient-slider after:bg-no-repeat after:bg-100-100 after:transition-all after:rotate-180;
+  }
+
+  .union-gradient {
+    @apply absolute top-0 left-0 w-full select-none h-[212px] bg-union-gradient bg-night-100 bg-top bg-no-repeat bg-auto-100;
+  }
+
+  .union-gradient--union-left {
+    @apply absolute top-0 h-5 w-1 bg-night-100 sm:w-[calc(50%-206px)] md:w-[calc(50%-260px)] lg:w-[calc(50%-163px)];
+
+    @apply before:absolute before:left-full before:w-0 before:h-0 before:border-t-[20px] before:border-r-[20px]  before:border-t-night-100  before:border-r-transparent  before:border-l-transparent  before:border-b-transparent;
+  }
+
+  .union-gradient--union-right {
+    @apply absolute top-0 h-5 w-1 bg-night-100 sm:w-[calc(50%-206px)] md:w-[calc(50%-260px)] lg:w-[calc(50%-163px)] right-0;
+
+    @apply before:absolute before:right-full before:w-0 before:h-0 before:border-t-[20px] before:border-l-[20px]  before:border-t-night-100  before:border-l-transparent  before:border-r-transparent  before:border-b-transparent;
+  }
+
+  .hero-lottie > svg {
+    @apply absolute top-0 right-1/2 !w-auto h-full mr-[-325px] md:mr-[-840px] lg:mr-[-896px];
+  }
+
+  .has-sticky-bar .announcement-bar,
+  .has-triggered-nav .announcement-bar {
+    @apply -translate-y-full;
+  }
+
+  .header {
+    @apply fixed top-0 left-0 w-full z-[80] h-16 px-[25px] transition-all duration-400 flex justify-between items-center;
+
+    @apply before:max-lg:absolute before:max-lg:top-0 before:max-lg:left-0 before:max-lg:z-[0] before:max-lg:w-full before:max-lg:h-16 before:max-lg:bg-night-100;
+  }
+
+  body:not(.has-sticky-bar):not(.has-triggered-nav) .header:not(.is-sticky) {
+    @apply lg:mt-[35px];
+  }
+
+  body:not(.has-sticky-bar):not(.has-triggered-nav) .header {
+    @apply mt-10 lg:mt-0;
+  }
+
+  body:not(.has-sticky-bar) .header--nav {
+    @apply lg:mt-5;
+  }
+
+  .header--nav:hover
+    .header--nav-box:not(:hover)
+    .header--nav-box__link:not(:hover) {
+    @apply opacity-30;
+  }
+
+  .menu-links:hover .menu-link:not(:hover) {
+    @apply opacity-30;
+  }
+
+  .header:not(.is-sticky) {
+    @apply lg:h-[84px];
+  }
+
+  .header.is-sticky {
+    @apply backdrop-blur-[8px] -translate-y-full bg-[rgba(17,27,36,.8)];
+  }
+
+  .header.is-sticky.show-nav {
+    @apply translate-y-0;
+  }
+
+  .header--nav-box.is-active > .header--nav-box__link {
+    @apply max-lg:!text-white;
+  }
+  .header--nav-box.is-active > .header--nav-box__link:after {
+    @apply max-lg:opacity-100 max-lg:visible;
+  }
+
+  .header--nav-box.is-active .header--nav-box__list {
+    @apply max-lg:opacity-100 max-lg:visible;
+  }
+
+  .header--nav-box__link {
+    @apply after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-auto after:invisible after:opacity-0 after:border-l-transparent after:border-r-transparent after:border-t-transparent after:border-b-night-300 after:border-l-[6px] after:border-r-[6px] after:border-b-[6px] after:-translate-x-1/2 after:transition;
+  }
+
+  .header-hld {
+    @apply absolute top-0 left-0 w-full z-[-1] h-screen overflow-y-auto pt-16 pb-20 bg-night-100 -translate-y-full transition-transform duration-400;
+
+    @apply lg:flex lg:p-0 lg:relative lg:items-center lg:justify-between lg:h-auto lg:transform-none lg:bg-transparent lg:overflow-visible;
+  }
+
+  .roadmap-hero {
+    @apply before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-no-repeat before:bg-bottom before:bg-hero-generic-bg;
+  }
+
+  .roadmap-item--header {
+    @apply absolute top-0 left-0 w-[calc(100%-160px)] h-[25px] z-[2] bg-night-150 rounded-t-sm border-t border-l border-t-night-300 border-l-night-300;
+
+    @apply before:absolute before:w-0 before:h-0 before:z-[-1] before:-top-px before:left-full before:border-t-[24px] before:border-l-[20px] before:border-l-night-300 before:border-r-transparent before:border-t-transparent before:border-b-transparent;
+
+    @apply after:absolute after:w-0 after:h-0 after:z-[-1] after:bottom-0 after:left-[calc(100%-0.5px)] after:border-t-[24px] after:border-l-[20px] after:border-l-night-150 after:border-r-transparent after:border-t-transparent after:border-b-transparent;
+  }
+
+  .roadmap-item--footer {
+    @apply absolute bottom-0 right-0 w-[130px] h-[25px] z-[2] bg-night-150 rounded-t-sm border-b border-r border-b-night-300 border-r-night-300;
+
+    @apply before:absolute before:right-full before:-bottom-px before:w-0 before:h-0 before:z-[-1] before:border-b-[24px] before:border-r-[20px] before:border-r-night-300 before:border-b-transparent before:border-l-transparent before:border-t-transparent;
+
+    @apply after:absolute after:w-0 after:h-0 after:z-[-1] after:top-0 after:right-[calc(100%-0.5px)] after:border-b-[24px] after:border-r-[20px] after:border-r-night-150 after:border-l-transparent after:border-t-transparent after:border-b-transparent;
+  }
+
+  .roadmap-pagination {
+    @apply before:relative before:block before:grow before:h-0.5 before:bg-night-300 before:transition-colors before:duration-400 before:mx-1 before:mb-[6.5px];
+    @apply after:relative after:block after:grow after:h-0.5 after:bg-night-300 after:transition-colors after:duration-400 after:mx-1 after:mb-[6.5px];
+  }
+
+  .indicator {
+    @apply before:block before:grow before:w-auto before:h-0.5 before:bg-night-low-emphasis before:transition-colors before:duration-400;
+    @apply after:block after:grow after:w-auto after:h-0.5 after:bg-night-low-emphasis after:transition-colors after:duration-400;
+  }
+
+  .ecosystem-slider .slick-slide {
+    @apply relative before:bg-applications-overlay before:top-0 before:left-0 before:w-full before:h-full before:absolute before:z-[2] before:invisible before:opacity-0 before:transition-all before:duration-400 before:bg-night-100 before:bg-no-repeat before:bg-top before:bg-100-auto;
+  }
+
+  .ecosystem-slider.reverse .slick-slide {
+    @apply before:rotate-180;
+  }
+  
+  .ecosystem-slider {
+    @apply before:absolute before:bg-gradient-slider-vertical before:right-0 before:left-0 before:top-0 before:h-1/4 before:pointer-events-none before:z-[3];
+
+    @apply after:absolute after:bg-gradient-slider-vertical after:right-0 after:left-0 after:bottom-0 after:h-1/4 after:pointer-events-none after:z-[3] after:rotate-180;
+  }
+
+  .ecosystem-slider.reverse {
+    @apply before:h-[10%];
+    @apply after:h-[10%];
+  }
+
+  .ecosystem-placeholder-top {
+    @apply before:absolute before:bg-gradient-slider-vertical before:right-0 before:left-0 before:top-0 before:h-full before:pointer-events-none before:z-[3];
+  }
+
+  .ecosystem-placeholder-bottom {
+    @apply before:absolute before:bg-gradient-slider-vertical before:rotate-180 before:right-0 before:left-0 before:bottom-0 before:h-full before:pointer-events-none before:z-[3];
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+.web3-slider .slick-list {
+  min-height: calc(106px * 5) !important;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    height: calc(116px * 5) !important;
+  }
+}
+
+.ecosystem-slider .slick-list {
+  height: 100% !important;
+}
+
+.ecosystem-slider .slick-slide:not(.slick-center):not(.slick-center + .slick-active)::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.quotes-slider .slick-track {
+  display: flex !important;
+  align-items: center;
+}
+
+.build-scales-slider .slick-track {
+  display: flex;
+}
+
+.slick-slide {
+  height: 100%;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+.slick-slide:not(.slick-center) .quote.desktop {
+  opacity: 0.4;
+  transform: scale(0.87);
+}
+
+.roadmap-slider .slick-slide:not(.slick-center):has(.roadmap-column.desktop) {
+  opacity: 0.3;
+}
+.roadmap-slider .slick-slide:not(.slick-center) .roadmap-item {
+  pointer-events: none;
+}
+.roadmap-slider:hover .arrow {
+  visibility: visible;
+}
+
+.slick-slide:not(.slick-center) .quote.desktop::before {
+  visibility: visible;
+}
+.slick-slide:not(.slick-center) .quote.desktop .icon-quote {
+  opacity: 0;
+}
+
+.slick-slide.slick-active .use-case-box {
+  opacity: 0.4;
+}
+
+.slick-slide.slick-active.slick-center .use-case-box {
+  opacity: 1;
+}
+
+@font-face {
+  font-family: Karla;
+  font-weight: 300;
+  src: url(/fonts/karla-light.woff2) format("woff2"),
+    url(/fonts/karla-light.woff) format("woff");
+}
+@font-face {
+  font-family: Karla;
+  font-weight: 500;
+  src: url(/fonts/karla-medium.woff2) format("woff2"),
+    url(/fonts/karla-medium.woff) format("woff");
+}
+@font-face {
+  font-family: Gilroy;
+  font-weight: 300;
+  src: url(/fonts/gilroy-light.woff2) format("woff2"),
+    url(/fonts/gilroy-light.woff) format("woff");
+}
+@font-face {
+  font-family: Gilroy;
+  font-weight: 500;
+  src: url(/fonts/gilroy-medium.woff2) format("woff2"),
+    url(/fonts/gilroy-medium.woff) format("woff");
+}
+@font-face {
+  font-family: Gilroy;
+  font-weight: 700;
+  src: url(/fonts/gilroy-bold.woff2) format("woff2"),
+    url(/fonts/gilroy-bold.woff) format("woff");
+}
+@font-face {
+  font-family: icomoon;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/icomoon.eot);
+  src: url(/fonts/icomoon.eot#iefix) format("embedded-opentype"),
+    url(/fonts/icomoon.ttf) format("truetype"),
+    url(/fonts/icomoon.woff) format("woff"),
+    url(/fonts/icomoon.svg#icomoon) format("svg");
+}
