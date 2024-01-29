@@ -101,217 +101,223 @@ const dataVesting2=[
 ]
 export default function Analysis() {
   const [isMobile, setIsMobile] = useState(false);
-  const option = {
-    tooltip: {
-      trigger: 'item'
-    },
-    graphic: {
-      elements: [{
-        id: '1',
-        type: 'text',
-        left: 'center',
-        top: 'middle',
-        z: 999,
-        style: {
-          text: "{a|100M}\n{b|Total Supply}",
-          rich: {
-            a: {
-              fontSize:isMobile? 32: 40,
-              fontWeight: 'bold',
-              lineHeight: 40,
-              fontFamily: 'Gilroy, sans-serif'
-            },
-            b: {
-              fontSize: isMobile? 18: 24,
-              fontWeight: 100,
-              fontFamily: 'Gilroy, sans-serif',
-              marginTop: 10,
-              letterSpacing: 5,
-              lineHeight: 30,
-            }
-          },
-          textAlign: 'center',
-          fontSize: 26,
-          backgroundColor: "transparent",
-          fill: '#ffffff',
-        }
-      }]
-    },
-    color: [
-      {
-        type: 'linear',
-        x: 0,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [{
-          offset: 0, color: '#031136' // color at 0%
-        }, {
-          offset: 1, color: '#006a90' // color at 100%
-        }],
-        global: false // default is false
-      },
-      {
-        type: 'linear',
-        x: 0,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [{
-          offset: 0, color: '#031136' // color at 0%
-        }, {
-          offset: 1, color: '#006a90' // color at 100%
-        }],
-        global: false // default is false
-      },
-      {
-        type: 'linear',
-        x: 1,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [{
-          offset: 0, color: '#031136' // color at 0%
-        }, {
-          offset: 1, color: '#006a90' // color at 100%
-        }],
-        global: false // default is false
-      },
-      {
-        type: 'linear',
-        x: 1,
-        y: 1,
-        x2: 0,
-        y2: 0,
-        colorStops: [{
-          offset: 0, color: '#031136' // color at 0%
-        }, {
-          offset: 1, color: '#006a90' // color at 100%
-        }],
-        global: false // default is false
-      },
-      {
-        type: 'linear',
-        x: 0,
-        y: 1,
-        x2: 1,
-        y2: 0,
-        colorStops: [{
-          offset: 0, color: '#031136' // color at 0%
-        }, {
-          offset: 1, color: '#006a90' // color at 100%
-        }],
-        global: false // default is false
-      },
 
-      {
-        type: 'linear',
-        x: 0,
-        y: 1,
-        x2: 1,
-        y2: 1,
-        colorStops: [{
-          offset: 0, color: '#031136' // color at 0%
-        }, {
-          offset: 1, color: '#006a90' // color at 100%
-        }],
-        global: false // default is false
-      },
-
-
-    ],
-    // legend: {
-    //   top: '5%',
-    //   left: 'center'
-    // },
-    series: [
-      {
-        name: 'Access From',
-        type: 'pie',
-        radius: ['48%', '70%'],
-        avoidLabelOverlap: false,
-        // label: {
-        //   show: false,
-        //   position: 'center'
-        // },
-        // emphasis: {
-        //   label: {
-        //     show: true,
-        //     fontSize: 40,
-        //     fontWeight: 'bold'
-        //   }
-        // },
-        labelLine: {
-          show: true,
-          lineStyle: {
-            color: {
-              type: 'linear',  // Sử dụng linear gradient
-              x: 0,
-              y: 0,
-              x2: 1,
-              y2: 0,
-              colorStops: [
-                {offset: 0, color: '#031136'},   // Màu bắt đầu
-                {offset: 1, color: '#006a90'}    // Màu kết thúc
-              ]
-            }
-          }
-        },
-        label: {
-          alignTo: 'edge',
-          formatter: '{name|{b}}\n{time|{c}%}',
-          minMargin: 5,
-          edgeDistance: 10,
-          lineHeight: 25,
-          fontSize:isMobile? 10: 15,
-          color: "#cccccc",
-          rich: {
-            time: {
-              fontSize: 12,
-              color: '#ffffff',
-              fontWeight: 600
-            }
-          }
-        },
-        labelLayout: function (params) {
-          const isLeft = params.labelRect.x < 400 / 2;
-          const points = params.labelLinePoints;
-          // Update the end point.
-          points[2][0] = isLeft
-            ? params.labelRect.x
-            : params.labelRect.x + params.labelRect.width;
-          return {
-            labelLinePoints: points,
-          };
-        },
-        title: {
-          text: 'Referer of a Website',
-          subtext: 'Fake Data',
-          left: 'center'
-        },
-        data: [
-          {name: 'Token Sale', value: 30},
-          {name: 'Treasury', value: 10},
-          {name: 'Liquidity Incentives', value: 25},
-          {name: 'BD Fund', value: 15},
-          {name: 'Ecosystem', value: 5},
-          {name: 'Team & Advisors', value: 15},
-
-        ]
-      },
-
-    ]
-  };
   const [randomData, setRandomData] = useState(0);
   const [isLoading, setLoading] = useState(true);
   const targetRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [size, setSize] = useState(null);
+  const option = {
+
+      tooltip: {
+        trigger: 'item'
+      },
+      graphic: {
+        elements: [{
+          id: '1',
+          type: 'text',
+          left: 'center',
+          top: 'middle',
+          z: 999,
+          style: {
+            text: "{a|100M}\n{b|Total Supply}",
+            rich: {
+              a: {
+                fontSize:isMobile? 10: 40,
+                fontWeight: 'bold',
+                lineHeight: 40,
+                fontFamily: 'Gilroy, sans-serif'
+              },
+              b: {
+                fontSize: isMobile? 18: 24,
+                fontWeight: 100,
+                fontFamily: 'Gilroy, sans-serif',
+                marginTop: 10,
+                letterSpacing: 5,
+                lineHeight: 30,
+              }
+            },
+            textAlign: 'center',
+            fontSize: 26,
+            backgroundColor: "transparent",
+            fill: '#ffffff',
+          }
+        }]
+      },
+      color: [
+        {
+          type: 'linear',
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [{
+            offset: 0, color: '#031136' // color at 0%
+          }, {
+            offset: 1, color: '#006a90' // color at 100%
+          }],
+          global: false // default is false
+        },
+        {
+          type: 'linear',
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [{
+            offset: 0, color: '#031136' // color at 0%
+          }, {
+            offset: 1, color: '#006a90' // color at 100%
+          }],
+          global: false // default is false
+        },
+        {
+          type: 'linear',
+          x: 1,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [{
+            offset: 0, color: '#031136' // color at 0%
+          }, {
+            offset: 1, color: '#006a90' // color at 100%
+          }],
+          global: false // default is false
+        },
+        {
+          type: 'linear',
+          x: 1,
+          y: 1,
+          x2: 0,
+          y2: 0,
+          colorStops: [{
+            offset: 0, color: '#031136' // color at 0%
+          }, {
+            offset: 1, color: '#006a90' // color at 100%
+          }],
+          global: false // default is false
+        },
+        {
+          type: 'linear',
+          x: 0,
+          y: 1,
+          x2: 1,
+          y2: 0,
+          colorStops: [{
+            offset: 0, color: '#031136' // color at 0%
+          }, {
+            offset: 1, color: '#006a90' // color at 100%
+          }],
+          global: false // default is false
+        },
+
+        {
+          type: 'linear',
+          x: 0,
+          y: 1,
+          x2: 1,
+          y2: 1,
+          colorStops: [{
+            offset: 0, color: '#031136' // color at 0%
+          }, {
+            offset: 1, color: '#006a90' // color at 100%
+          }],
+          global: false // default is false
+        },
+
+
+      ],
+      // legend: {
+      //   top: '5%',
+      //   left: 'center'
+      // },
+      series: [
+        {
+          name: 'Access From',
+          type: 'pie',
+          radius: ['48%', '70%'],
+          avoidLabelOverlap: false,
+          // label: {
+          //   show: false,
+          //   position: 'center'
+          // },
+          // emphasis: {
+          //   label: {
+          //     show: true,
+          //     fontSize: 40,
+          //     fontWeight: 'bold'
+          //   }
+          // },
+          labelLine: {
+            show: true,
+            lineStyle: {
+              color: {
+                type: 'linear',  // Sử dụng linear gradient
+                x: 0,
+                y: 0,
+                x2: 1,
+                y2: 0,
+                colorStops: [
+                  {offset: 0, color: '#031136'},   // Màu bắt đầu
+                  {offset: 1, color: '#006a90'}    // Màu kết thúc
+                ]
+              }
+            }
+          },
+          label: {
+            alignTo: 'edge',
+            formatter: '{name|{b}}\n{time|{c}%}',
+            minMargin: 5,
+            edgeDistance: 10,
+            lineHeight: 25,
+            fontSize:isMobile? 10: 15,
+            color: "#cccccc",
+            rich: {
+              time: {
+                fontSize: 12,
+                color: '#ffffff',
+                fontWeight: 600
+              }
+            }
+          },
+          labelLayout: function (params) {
+            const isLeft = params.labelRect.x < 400 / 2;
+            const points = params.labelLinePoints;
+            // Update the end point.
+            points[2][0] = isLeft
+              ? params.labelRect.x
+              : params.labelRect.x + params.labelRect.width;
+            return {
+              labelLinePoints: points,
+            };
+          },
+          title: {
+            text: 'Referer of a Website',
+            subtext: 'Fake Data',
+            left: 'center'
+          },
+          data: [
+            {name: 'Token Sale', value: 30},
+            {name: 'Treasury', value: 10},
+            {name: 'Liquidity Incentives', value: 25},
+            {name: 'BD Fund', value: 15},
+            {name: 'Ecosystem', value: 5},
+            {name: 'Team & Advisors', value: 15},
+
+          ]
+        },
+
+      ]
+    }
+
   const generateRandomData = () => {
     return Math.floor(Math.random() * 100); // Thay đổi phương thức tạo số liệu ngẫu nhiên tùy theo nhu cầu
   };
   useEffect(() => {
     const handleResize = () => {
+      setSize(window.innerWidth);
       setIsMobile(window.innerWidth < 768)
+      console.log(window.innerWidth < 768)
     };
 
     handleResize();
@@ -352,7 +358,7 @@ const chartMemo = useMemo(()=> {
       <div ref={targetRef} className="container my-16 sm:mt-16 sm:my-16 md:my-16 md:mt-16 lg:my-32 lg:mt-28">
       <div className="md:grid lg:grid md:grid-cols-6 lg:grid-cols-12 sm:gap-y-10 md:gap-y-10 lg:gap-x-10">
           <div className="lg:col-span-6 md:col-span-6 md:grid-cols-2 aos-init" data-aos="zoom-in">
-            {isScrolled && chartMemo}
+            {chartMemo}
           </div>
           <div className="lg:col-span-6 md:col-span-6 md:grid-cols-2 m-auto" data-aos="zoom-in">
             <div className="border border-[#cccccc] p-10 rounded-2xl">

@@ -473,7 +473,7 @@ strong {
 @media screen and (max-width: 767px)
 {
   .chart-custome{
-    height: 300px;
+    height: 400px;
   }
   .c-flex-left{
     min-width: 14rem;
