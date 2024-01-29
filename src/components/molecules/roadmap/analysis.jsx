@@ -316,7 +316,7 @@ export default function Analysis() {
   return (
     <>
       <div className="container lg:my-32 lg:mt-28">
-        <div className="grid md:grid-cols-6 lg:grid-cols-12 sm:gap-y-10 md:gap-y-10 lg:gap-x-10">
+        <div className="md:grid lg:grid md:grid-cols-6 lg:grid-cols-12 sm:gap-y-10 md:gap-y-10 lg:gap-x-10">
           <div className="lg:col-span-6 md:col-span-6 md:grid-cols-2 aos-init aos-animate">
             <div className="chart-custome">
               <ReactECharts  style={{height:'100%'}} option={option}/>
@@ -325,7 +325,7 @@ export default function Analysis() {
           </div>
           <div className="lg:col-span-6 md:col-span-6 md:grid-cols-2 aos-init aos-animate m-auto">
             <div className="border border-[#cccccc] p-10 rounded-2xl">
-              <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-x-8">
+              <div className="md:grid lg:grid md:grid-cols-2 lg:grid-cols-12 gap-x-8">
                 <div className="lg:col-span-5 aos-init aos-animate">
 
                   {dataTable1.map((item, index) => {
@@ -334,7 +334,7 @@ export default function Analysis() {
                         <div className={`c-flex-left text-sm leading-7 font-bold text-[#4598c8]`}>
                           {item.name}
                         </div>
-                        <div className={`c-flex-right text-sm leading-7 tracking-wide font-bold`}>
+                        <div className={`c-flex-right1 text-sm leading-7 tracking-wide font-bold`}>
                           {item.value}
                         </div>
                       </div>
@@ -345,7 +345,7 @@ export default function Analysis() {
                   {dataTable2.map((item, index) => {
                     return (
                       <div key={index} className="flex gap-x-3">
-                        <div className="flex-none text-sm min-w-56 leading-7 font-bold text-[#4598c8]">
+                        <div className="flex-none text-sm c-flex-right leading-7 font-bold text-[#4598c8]">
                           {item.name}
                         </div>
                         <div className="flex-1 text-sm leading-7 tracking-wide font-bold">

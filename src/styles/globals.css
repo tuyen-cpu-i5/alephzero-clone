@@ -460,11 +460,16 @@ strong {
   min-width: 8rem;
 }
 .c-flex-right{
+
+  min-width: 14rem;
+}
+.c-flex-right1{
   flex: 1;
 }
 .chart-custome{
   height: 450px;
 }
+
 @media screen and (max-width: 767px)
 {
   .chart-custome{
@@ -479,8 +484,14 @@ strong {
 }
 @media screen and (max-width: 479px)
 {
+  .c-flex-left{
+    min-width: 12rem;
+  }
   .chart-custome{
     height: 300px;
   }
+  .c-flex-right{
 
+    min-width: 12rem;
+  }
 }
