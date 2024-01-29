@@ -263,6 +263,7 @@ export default function Analysis() {
           minMargin: 5,
           edgeDistance: 10,
           lineHeight: 25,
+          fontSize:isMobile? 10: 15,
           color: "#cccccc",
           rich: {
             time: {

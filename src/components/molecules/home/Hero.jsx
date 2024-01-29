@@ -25,12 +25,11 @@ export default function Hero() {
               <span>Start exploring</span>
             </a>
           </div>
-          <div className="lg:col-span-7 md:-mt-4 md:-mr-12 lg:-mt-32 xl:-mt-48 z-10 max-md:-mt-[220px] globe-hero-custom">
-            <GlobeCanvas/>
-            {/*<div style={{width:900, height:"auto"}}>*/}
-            {/*  <GlobeCanvas/>*/}
-            {/*</div>*/}
-            {/*<img src='/assets/images/globe-hero.png' alt="" width={900} height={900} className="md:scale-125 lg:scale-100" />*/}
+          <div className="lg:col-span-7 md:-mt-4 md:-mr-12 lg:-mt-32 xl:-mt-48 z-10 max-md:-mt-[220px]">
+            {/*<GlobeCanvas/>*/}
+            <div className="z-0 aspect-square max-lg:pointer-events-none xl:row-span-4 lg:px-20">
+              <GlobeCanvas/>
+            </div>
           </div>
         </div>
       </div>
