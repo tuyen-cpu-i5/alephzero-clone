@@ -314,6 +314,8 @@ export default function Analysis() {
     return Math.floor(Math.random() * 100); // Thay đổi phương thức tạo số liệu ngẫu nhiên tùy theo nhu cầu
   };
   useEffect(() => {
+    console.log("hihi",window.innerWidth < 768)
+    setIsMobile(window.innerWidth < 768)
     const handleResize = () => {
       setSize(window.innerWidth);
       setIsMobile(window.innerWidth < 768)
