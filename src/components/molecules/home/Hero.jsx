@@ -1,5 +1,6 @@
 import Lottie from 'lottie-react'
 import React from 'react'
+import GlobeCanvas from "@/components/atoms/GlobeCanvas";
 
 export default function Hero() {
   return (
@@ -24,8 +25,12 @@ export default function Hero() {
               <span>Start exploring</span>
             </a>
           </div>
-          <div className="lg:col-span-7 md:-mt-4 md:-mr-12 lg:-mt-32 xl:-mt-48 z-10 max-md:-mt-[220px]">
-            <img src='/assets/images/globe-hero.png' alt="" width={900} height={900} className="md:scale-125 lg:scale-100" />
+          <div className="lg:col-span-7 md:-mt-4 md:-mr-12 lg:-mt-32 xl:-mt-48 z-10 max-md:-mt-[220px] globe-hero-custom">
+            <GlobeCanvas/>
+            {/*<div style={{width:900, height:"auto"}}>*/}
+            {/*  <GlobeCanvas/>*/}
+            {/*</div>*/}
+            {/*<img src='/assets/images/globe-hero.png' alt="" width={900} height={900} className="md:scale-125 lg:scale-100" />*/}
           </div>
         </div>
       </div>
