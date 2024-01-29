@@ -123,7 +123,7 @@ export default function Analysis() {
             text: "{a|100M}\n{b|Total Supply}",
             rich: {
               a: {
-                fontSize:isMobile? 10: 40,
+                fontSize:isMobile? 32: 40,
                 fontWeight: 'bold',
                 lineHeight: 40,
                 fontFamily: 'Gilroy, sans-serif'
