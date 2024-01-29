@@ -122,7 +122,7 @@ export default function Analysis() {
               fontFamily: 'Gilroy, sans-serif'
             },
             b: {
-              fontSize: isMobile? 20: 24,
+              fontSize: isMobile? 18: 24,
               fontWeight: 100,
               fontFamily: 'Gilroy, sans-serif',
               marginTop: 10,

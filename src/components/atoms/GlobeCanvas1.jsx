@@ -3,9 +3,10 @@ import { globeOptions } from '@/constants/globe'
 import useScript from '@/hooks/useScript'
 import clsx from 'clsx'
 import { getRandomCoordinates } from '@/utils/helper'
+import useScript1 from "@/hooks/useScript1";
 
 export default function GlobeCanvas() {
-  const isReady = useScript("/scripts/globe.js")
+  const isReady = useScript1("/scripts/globe1.js")
   const [isInitialized, setIsInitialized] = useState(false)
 
   const canvasRef = useRef(null)
@@ -13,17 +14,17 @@ export default function GlobeCanvas() {
 
   useEffect(() => {
     if (!isReady) return;
-    if (window.glDotGlobe?.init(canvasRef.current, globeOptions)) {
+    if (window.glDotGlobe1?.init(canvasRef.current, globeOptions)) {
       setIsInitialized(true)
       requestAnimationFrame(function animate() {
-        window.glDotGlobe.update(0.035)
+        window.glDotGlobe1.update(0.035)
         requestAnimationFrame(animate)
       })
 
       const interval = setInterval(() => {
         const index = Math.floor(Math.random() * globeOptions.markers.length)
         const coordinates = globeOptions.markers[index]
-        window.glDotGlobe?.triggerPulse(coordinates.lat, coordinates.long);
+        window.glDotGlobe1?.triggerPulse(coordinates.lat, coordinates.long);
       }, 200)
 
       const cleanup = setupEventListeners()
@@ -36,15 +37,15 @@ export default function GlobeCanvas() {
 
   const setupEventListeners = () => {
     const handlePointerDown = (event) => {
-      window.glDotGlobe.onPointerDown(event)
+      window.glDotGlobe1.onPointerDown(event)
     };
 
     const handlePointerMove = (event) => {
-      window.glDotGlobe.onPointerMove(event)
+      window.glDotGlobe1.onPointerMove(event)
     };
 
     const handlePointerUp = (event) => {
-      window.glDotGlobe.onPointerUp(event)
+      window.glDotGlobe1.onPointerUp(event)
     };
 
     const canvas = canvasRef.current
@@ -56,7 +57,7 @@ export default function GlobeCanvas() {
     const handleResize = () => {
       const rect = containerRef.current.getBoundingClientRect();
       const width = Math.floor(rect.width) || 0;
-      window.glDotGlobe?.resize(width);
+      window.glDotGlobe1?.resize(width);
     };
 
     handleResize();
