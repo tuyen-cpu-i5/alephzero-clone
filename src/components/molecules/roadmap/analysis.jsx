@@ -1,5 +1,5 @@
 import ReactECharts from 'echarts-for-react';
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 
 
 
@@ -302,6 +302,13 @@ export default function Analysis() {
 
     ]
   };
+  const [randomData, setRandomData] = useState(0);
+  const [isLoading, setLoading] = useState(true);
+  const targetRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const generateRandomData = () => {
+    return Math.floor(Math.random() * 100); // Thay đổi phương thức tạo số liệu ngẫu nhiên tùy theo nhu cầu
+  };
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768)
@@ -310,21 +317,44 @@ export default function Analysis() {
     handleResize();
     window.addEventListener('resize', handleResize); // Thêm sự kiện lắng nghe khi cửa sổ được resize
 
-    return () => {
-      window.removeEventListener('resize', handleResize); // Cleanup khi component bị unmount
+    if(isScrolled){
+      const intervalId = setInterval(() => {
+        setRandomData(generateRandomData());
+      }, 50); // Cập nhật số liệu mỗi 100ms, bạn có thể điều chỉnh theo nhu cầu
+      setTimeout(() => {
+        setLoading(false);
+        clearInterval(intervalId);
+      }, 1500); // Dừng cập nhật số liệu sau 2 giây
+    }
+
+
+    const handleScroll = () => {
+      const targetElement = targetRef.current;
+      if (targetElement) {
+        const { top } = targetElement.getBoundingClientRect();
+        setIsScrolled(top < window.innerHeight);
+      }
     };
-  }, []);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isScrolled]);
+const chartMemo = useMemo(()=> {
+  return <div className="chart-custome">
+    <ReactECharts style={{height: '100%'}} option={option}/>
+  </div>
+},[])
+
   return (
     <>
-      <div className="container lg:my-32 lg:mt-28">
-        <div className="md:grid lg:grid md:grid-cols-6 lg:grid-cols-12 sm:gap-y-10 md:gap-y-10 lg:gap-x-10">
-          <div className="lg:col-span-6 md:col-span-6 md:grid-cols-2 aos-init aos-animate">
-            <div className="chart-custome">
-              <ReactECharts  style={{height:'100%'}} option={option}/>
-            </div>
-
+      <div ref={targetRef} className="container my-16 sm:mt-16 sm:my-16 md:my-16 md:mt-16 lg:my-32 lg:mt-28">
+      <div className="md:grid lg:grid md:grid-cols-6 lg:grid-cols-12 sm:gap-y-10 md:gap-y-10 lg:gap-x-10">
+          <div className="lg:col-span-6 md:col-span-6 md:grid-cols-2 aos-init" data-aos="zoom-in">
+            {isScrolled && chartMemo}
           </div>
-          <div className="lg:col-span-6 md:col-span-6 md:grid-cols-2 aos-init aos-animate m-auto">
+          <div className="lg:col-span-6 md:col-span-6 md:grid-cols-2 m-auto" data-aos="zoom-in">
             <div className="border border-[#cccccc] p-10 rounded-2xl">
               <div className="md:grid lg:grid md:grid-cols-2 lg:grid-cols-12 gap-x-8">
                 <div className="lg:col-span-5 aos-init aos-animate">
@@ -336,7 +366,7 @@ export default function Analysis() {
                           {item.name}
                         </div>
                         <div className={`c-flex-right1 text-sm leading-7 tracking-wide font-bold`}>
-                          {item.value}
+                          {!isLoading&&item.value}{isLoading&& '$'+(randomData)+'M'}
                         </div>
                       </div>
                     )
@@ -350,7 +380,7 @@ export default function Analysis() {
                           {item.name}
                         </div>
                         <div className="flex-1 text-sm leading-7 tracking-wide font-bold">
-                          {item.value}
+                          {!isLoading&&item.value}{isLoading&& '$'+(randomData)+'M'}
                         </div>
                       </div>
                     )
